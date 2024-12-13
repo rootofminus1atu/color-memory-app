@@ -65,7 +65,6 @@ public class Db extends SQLiteOpenHelper {
     public void removeLatestScores(int amount) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        // Delete the latest 2 scores by their id (assuming 'id' is auto-incremented)
         String deleteQuery = "DELETE FROM " + TABLE_SCORES +
                 " WHERE " + COLUMN_ID + " IN (SELECT " + COLUMN_ID +
                 " FROM " + TABLE_SCORES + " ORDER BY " + COLUMN_ID + " DESC LIMIT " + amount + ")";

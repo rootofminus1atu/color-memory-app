@@ -1,5 +1,7 @@
 package com.example.gameapp;
 
+import androidx.annotation.NonNull;
+
 public class ScoreEntry {
     private final int score;
     private final String name;
@@ -17,6 +19,7 @@ public class ScoreEntry {
         return name;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "ScoreEntry{name='" + name + "', score=" + score + "}";

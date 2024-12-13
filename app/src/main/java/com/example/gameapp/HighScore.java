@@ -2,7 +2,6 @@ package com.example.gameapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,11 +33,13 @@ public class HighScore extends AppCompatActivity {
         LinearLayout scoresLayout = findViewById(R.id.scores_layout);
         ListIterator<ScoreEntry> iterator = topScores.listIterator();
         while (iterator.hasNext()) {
-            int index = iterator.nextIndex();  // Get the current index
-            ScoreEntry entry = iterator.next();  // Get the next ScoreEntry
+            int index = iterator.nextIndex();
+            ScoreEntry entry = iterator.next();
+
             TextView scoreView = new TextView(this);
             scoreView.setText((index + 1) + ". " + entry.getName() + ": " + entry.getScore());
             scoreView.setTextSize(18);
+
             scoresLayout.addView(scoreView);
         }
 

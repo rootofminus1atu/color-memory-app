@@ -3,7 +3,6 @@ package com.example.gameapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -87,16 +84,11 @@ public class GameOver extends AppCompatActivity {
 
     private boolean isInTopScores(Db db, int score) {
         ArrayList<ScoreEntry> topScores = db.getTopPlayers(5);
+
         if (topScores.size() < 5) {
             return true;
         }
 
-        for (ScoreEntry entry : topScores) {
-            if (score > entry.getScore()) {
-                return true;
-            }
-        }
-
-        return false;
+        return topScores.stream().anyMatch(entry -> score > entry.getScore());
     }
 }

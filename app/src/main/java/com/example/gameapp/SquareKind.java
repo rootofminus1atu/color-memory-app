@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-/**
- * The 4 elements used in the game, identified by North East South West
- */
 public enum SquareKind {
     NE, NW, SW, SE;
 

@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class GameData implements Serializable {
-    private static final int DEFAULT_COLORS_AMOUNT = 4;
+    private static final int START_AMOUNT = 4;
     private static final int INCREMENT_AMOUNT = 2;
 
     private int level = 0;
     private final ArrayList<SquareKind> sequence = new ArrayList<SquareKind>();
 
     public GameData() {
-        for (int i = 0; i < DEFAULT_COLORS_AMOUNT; i++) {
+        for (int i = 0; i < START_AMOUNT; i++) {
             sequence.add(SquareKind.getRandom());
         }
     }
@@ -32,13 +32,8 @@ public class GameData implements Serializable {
     }
 
     public int getSquaresAmount() {
-        return DEFAULT_COLORS_AMOUNT + INCREMENT_AMOUNT * level;
+        return START_AMOUNT + INCREMENT_AMOUNT * level;
     }
-
-    // fail score
-    // 0 -> 0
-    // 1 -> 4
-    // 2 -> 6
 
     public int getScore() {
         return level == 0 ? 0 : getSquaresAmount() - INCREMENT_AMOUNT;

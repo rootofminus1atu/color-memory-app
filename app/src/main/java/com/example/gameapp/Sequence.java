@@ -3,10 +3,7 @@ package com.example.gameapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.flexbox.FlexboxLayout.LayoutParams;
 
-import org.w3c.dom.Text;
 
 public class Sequence extends AppCompatActivity {
 
@@ -60,7 +56,6 @@ public class Sequence extends AppCompatActivity {
         ((TextView)findViewById(R.id.title)).setText("Memorize " + gameData.getSquaresAmount() + " Colors");
 
         findViewById(R.id.ready_button).setOnClickListener(v -> {
-            // Start the GameActivity
             Intent intent = new Intent(this, Play.class);
             GameData.putGameData(intent, gameData);
             startActivity(intent);
